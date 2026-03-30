@@ -1,9 +1,6 @@
 class Piloto(
     val nome: String,
     val idade: Int,
-    val habilidade: Habilidade) {
+    val habilidade: Int) {
 
-    fun usarHabilidade() {
-        println("Habilidade ${habilidade.poder} foi usada")
-    }
 }
