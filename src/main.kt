@@ -32,13 +32,87 @@ fun main() {
 
     // Função listOf para Agrupar elementos (Lista de carros)
     val listaDeLargada = listOf(carro1, carro2, carro3, carro4, carro5, carro6, carro7, carro8, carro9, carro10)
-
     // Criando a pista
     val monaco = Pista(listaDeLargada, 50, "Ensolarado")
 
-    // Simulando a corrida e mostrando o resultado
-    println("A corrida de ${monaco.voltas} voltar começou! Clima: ${monaco.clima}")
-    monaco.simularCorrida()
-    monaco.mostrarPlacar()
+    // Variáveis para controlar o jogo
+    var meuCarro: Carro? = null
+    var jogoRodando = true
+
+    println("Bem-vindo ao Simulador de Corridas!")
+
+    // O laço while mantém o menu na tela até a corrida iniciar
+    while (jogoRodando) {
+        println("\n--- 🏎️ MENU PRINCIPAL 🏎️ ---")
+        println("1. Escolher meu carro")
+        println("2. Usar habilidade especial")
+        println("3. Iniciar corrida")
+        println("0. Sair do jogo")
+        print("Digite a opção desejada: ")
+
+        // Lê a opção do usuário
+        val opcao = readln().toIntOrNull()
+
+        // Estrutura do menu
+        when (opcao) {
+            1 -> {
+                println("\nQual carro você quer?")
+                println("1. Carro de ${carro1.piloto.nome}")
+                println("2. Carro de ${carro2.piloto.nome}")
+                println("3. Carro de ${carro3.piloto.nome}")
+                println("4. Carro de ${carro4.piloto.nome}")
+                println("5. Carro de ${carro5.piloto.nome}")
+                println("6. Carro de ${carro6.piloto.nome}")
+                println("7. Carro de ${carro7.piloto.nome}")
+                println("8. Carro de ${carro8.piloto.nome}")
+                println("9. Carro de ${carro9.piloto.nome}")
+                println("10. Carro de ${carro10.piloto.nome}")
+                print("Escolha: ")
+
+                val escolhaCarro = readln().toIntOrNull()
+                if (escolhaCarro == 1) {
+                    meuCarro = carro1
+                    println("✅ Você escolheu jogar com: ${meuCarro.piloto.nome}")
+                } else if (escolhaCarro == 2) {
+                    meuCarro = carro2
+                    println("✅ Você escolheu jogar com: ${meuCarro.piloto.nome}")
+                } else {
+                    println("❌ Opção inválida.")
+                }
+            }
+
+            2 -> {
+                // Só deixa usar a habilidade se já tiver escolhido um carro
+                if (meuCarro != null) {
+                    meuCarro.ativarHabilidade()
+                } else {
+                    println("⚠️ Você precisa escolher um carro primeiro! (Digite 1)")
+                }
+            }
+
+            3 -> {
+                if (meuCarro != null) {
+                    println("\n🚦 LARGADA AUTORIZADA! 🚦")
+                    println("A corrida de ${monaco.voltas} voltas começou sob clima ${monaco.clima}!")
+                    monaco.simularCorrida()
+                    monaco.mostrarPlacar()
+
+                    // Encerra o laço e o jogo após a corrida
+                    jogoRodando = false
+                } else {
+                    println("⚠️ Você precisa escolher um carro antes de correr! (Digite 1)")
+                }
+            }
+
+            0 -> {
+                println("Saindo do jogo... Até a próxima!")
+                jogoRodando = false
+            }
+
+            else -> {
+                println("❌ Opção inválida. Tente novamente.")
+            }
+        }
+    }
 
 }

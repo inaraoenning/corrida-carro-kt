@@ -11,11 +11,10 @@ class Pista(
 
     //Pontuação de desempenho = atributos do carro + as habilidades dos pilotos,
     // quem tiver a maior pontuação final ganha a corrida
-
     fun simularCorrida(){
         // Ordena os carros do maior desempenho para o menor
         posicoes = listaDeCarros.sortedByDescending { carro->
-            carro.velocidade + carro.aceleracao + carro.piloto.habilidade
+            carro.velocidade + carro.aceleracao + carro.piloto.habilidade + carro.boost
         }
     }
 
