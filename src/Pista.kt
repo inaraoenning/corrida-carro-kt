@@ -37,7 +37,7 @@ class Pista(
             }
 
             for (oponente in oponentesLargada) {
-                // Chance de 20% de usar o nitro
+                // Chance de 25% de usar o nitro
                 val chance = (1..100).random()
                 if (chance > 75) {
                     oponente.ativarHabilidade()
