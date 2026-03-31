@@ -12,9 +12,24 @@ class Carro(
     // variável para guardar o bônus da habilidade
     var boost: Int = 0
 
+    var pontuacaoTotal: Int = 0;
+
     // funcao que ativa habilidade e da pontos extras ao carro
     fun ativarHabilidade() {
-        println("🔥🔥🔥🔥 🚨 WOW! ${piloto.nome} ativou o Nitro e ganhou + 100% de potencia")
-        boost = 100
+        boost = 50
     }
+
+
+    fun calcularDesempenho(): Int {
+        val desempenhoNestaVolta = velocidade + aceleracao + piloto.habilidade + boost
+
+        // somar ao total acumulado no carro
+        pontuacaoTotal += desempenhoNestaVolta
+        return desempenhoNestaVolta
+
+        // Zera o Boost depois de usar
+        boost = 0
+    }
+
+
 }
