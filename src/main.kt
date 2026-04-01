@@ -1,12 +1,5 @@
 fun main() {
 
-    // todo menu corrida
-    // todo iniciar corrida
-    // todo escolher carro (ver lista de carros e digitar o nome do carro escolhido)
-    // todo sair
-
-    // todo Placar
-
     // Instância dos 10 carros e pilotos
     val piloto1 = Piloto("Ayrton", 43, 10)
     val piloto2 = Piloto("Relampago Marquinhos", 10, 10)
