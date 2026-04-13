@@ -25,10 +25,12 @@ class Carro(
 
         // somar ao total acumulado no carro
         pontuacaoTotal += desempenhoNestaVolta
-        return desempenhoNestaVolta
-
+        
         // Zera o Boost depois de usar
         boost = 0
+
+        return desempenhoNestaVolta
+
     }
 
 
