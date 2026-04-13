@@ -13,6 +13,7 @@ class Pista(
 
     fun mostrarPosicoesLargada() {
         println("\n--- 🚥 POSIÇÕES DE LARGADA 🚥 ---")
+        // Percorrer simultaneamente valor e posicao 
         posicoesLargada.forEachIndexed { index, carro ->
             println("${index + 1}º Lugar: ${carro.piloto.nome} ")
         }
